@@ -1,0 +1,1 @@
+{"uuid":"83472b8b-61bc-4416-9448-9632f7ca0c38","name":"TaskBTest","children":["564e7f3c-7d4b-4834-bdee-8d5665bb47d9"],"befores":[{"name":"setupClass","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1643622394467,"stop":1643622395889}],"afters":[],"links":[],"start":1643622394448,"stop":1643622399962}
