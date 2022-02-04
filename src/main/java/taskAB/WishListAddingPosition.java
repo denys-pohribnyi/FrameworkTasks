@@ -1,8 +1,8 @@
+package taskAB;
+
+import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WishListAddingPosition extends BasePage {
     private final WebDriver driver;
@@ -18,16 +18,10 @@ public class WishListAddingPosition extends BasePage {
 
 
     public WishListAddingPosition addingPositionToWL() {
-        Actions action = new Actions(driver);
-        WebDriverWait wait = new WebDriverWait(driver, 5);
-        action.moveToElement(driver.findElement(positionToAdd)).perform();
+        moveToElement(driver.findElement(positionToAdd));
         driver.findElement(wishListButton).click();
         driver.findElement(positionToAdd).isDisplayed();
-//        String text = driver.findElement(positionToAdd).getText();
-//        System.out.println(text);
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(messageItemIsAdded))).isDisplayed();
-//        String text2 = driver.findElement(messageItemIsAdded).getText();
-//        System.out.println(text2);
+        waitVisibility(driver.findElement(messageItemIsAdded));
         return this;
     }
 

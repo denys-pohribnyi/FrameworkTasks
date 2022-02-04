@@ -1,5 +1,8 @@
+import base.BaseTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import taskAB.WishListAddingPosition;
+import taskAB.WishListPage;
 
 public class TaskBTest extends BaseTest {
     private WishListAddingPosition wishListAddingPosition;
@@ -22,10 +25,10 @@ public class TaskBTest extends BaseTest {
     }
 }
 //A) Сделать (или апдейтнуть текущий) новый проект:
-//- Должен быть BaseTest для сетапа драйверов
-//- BasePage где будут написаны и будут переиспользоваться методы для интеракции с
+//- Должен быть base.BaseTest для сетапа драйверов
+//- base.BasePage где будут написаны и будут переиспользоваться методы для интеракции с
 //элементами. В конструкторе есть driver - package page где будут page objects (все
-//пейдж обжекты наследники BasePage)
+//пейдж обжекты наследники base.BasePage)
 //B) в задании использовать паттерн page object
 //1. Open shop.demoqa.com
 //2. Favorite Tokyo-Talkies (Add to Wishlist)

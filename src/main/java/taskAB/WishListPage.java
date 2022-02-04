@@ -1,3 +1,5 @@
+package taskAB;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -12,12 +14,12 @@ public class WishListPage {
 
     private final By itemInWishList = By.xpath("//*[contains(text(),'Tokyo Talkies')]");
 
-    public WishListPage checkingWishList(String expectedItem){
+    public WishListPage checkingWishList(String expectedItem) {
         Actions action = new Actions(driver);
         action.moveToElement(driver.findElement(itemInWishList)).perform();
         String list = driver.findElement(itemInWishList).getText();
 //        System.out.println(list);
-        Assert.assertEquals(list,expectedItem);
+        Assert.assertEquals(list, expectedItem);
         return this;
     }
 

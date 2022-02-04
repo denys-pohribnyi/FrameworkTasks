@@ -1,7 +1,10 @@
+import base.BaseTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import taskC.TaskCCartPage;
+import taskC.TaskCPage;
 
-public class TaskCTest extends BaseTest{
+public class TaskCTest extends BaseTest {
     private TaskCPage taskCPage;
     private TaskCCartPage taskCCartPage;
 
@@ -12,16 +15,16 @@ public class TaskCTest extends BaseTest{
     }
 
     @Test
-    public void addingTShirtToCardTest(){
+    public void addingTShirtToCardTest() {
         openURL("https://shop.demoqa.com/");
         taskCPage
                 .openProductInfo()
                 .setProductColor("Pink")
-                .setProductSize()
-                .setQuantity()
+                .setProductSize("37")
+                .setQuantity("3")
                 .addProductToCart()
                 .openTheCart();
-        taskCCartPage.checkingProductInTheCart();
+        taskCCartPage.checkingProductInTheCart("PINK DROP SHOULDER OVERSIZED T SHIRT - PINK");
     }
 }
 //C) в задании использовать паттерн page object
