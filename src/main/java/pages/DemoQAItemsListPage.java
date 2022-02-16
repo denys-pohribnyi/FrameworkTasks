@@ -1,23 +1,23 @@
-package taskAB;
+package pages;
 
 import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class WishListAddingPosition extends BasePage {
+public class DemoQAItemsListPage extends BasePage {
     private final WebDriver driver;
 
-    public WishListAddingPosition(WebDriver driver) {
+    public DemoQAItemsListPage(WebDriver driver) {
         this.driver = driver;
     }
 
     private final By positionToAdd = By.xpath("//*[contains(text(),'Tokyo Talkies')]");
-    private final By wishListButton = By.xpath("/html[1]/body[1]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]");
+    private final By wishListButton = By.cssSelector(".add_to_wishlist.single_add_to_wishlist[href='?add_to_wishlist=704&_wpnonce=b5ac5341d3']");
     private final By wishListPage = By.xpath("//*[contains(text(),'My Wishlist')]");
     private final By messageItemIsAdded = By.xpath("//div[@id='yith-wcwl-message']");
 
 
-    public WishListAddingPosition addingPositionToWL() {
+    public DemoQAItemsListPage addingPositionToWL() {
         moveToElement(driver.findElement(positionToAdd));
         driver.findElement(wishListButton).click();
         driver.findElement(positionToAdd).isDisplayed();
@@ -25,7 +25,7 @@ public class WishListAddingPosition extends BasePage {
         return this;
     }
 
-    public WishListPage openingWL() {
+    public WishListPage openingWishList() {
         driver.findElement(wishListPage).click();
         return new WishListPage(driver);
     }

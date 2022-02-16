@@ -17,7 +17,7 @@ public class BasePage {
     }
 
     public void moveToElement(WebElement element) {
-        Actions action = new Actions(driver);     // or try getDriver();
+        Actions action = new Actions(driver);
         action.moveToElement(element).perform();
     }
 
@@ -30,8 +30,9 @@ public class BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(element)).click();
     }
 
-    public void select(WebElement element){
+    public void selectByText(WebElement element, String selectByText){
         Select select = new Select(element);
+        select.selectByVisibleText(selectByText);
     }
 }
 //- base.BasePage где будут написаны и будут переиспользоваться методы для интеракции с

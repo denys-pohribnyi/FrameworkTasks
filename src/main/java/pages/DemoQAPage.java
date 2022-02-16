@@ -1,14 +1,13 @@
-package taskC;
+package pages;
 
 import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
 
-public class TaskCPage extends BasePage {
+public class DemoQAPage extends BasePage {
     private final WebDriver driver;
 
-    public TaskCPage(WebDriver driver) {
+    public DemoQAPage(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -18,47 +17,42 @@ public class TaskCPage extends BasePage {
     private final By quantity = By.xpath("//*[@class='input-text qty text']");
     private final By addToCardButton = By.xpath("//*[@id=\"product-1497\"]/div[1]/div[2]/form/div/div[2]/button");
     private final By cartButton = By.xpath("//*[@id=\"noo-site\"]/div[2]/div/div/div[1]/div/a");
-//    private final By cartButton = By.xpath("//span[@class='cart-name-and-total']"); throws  StaleElementReferenceException
 
-
-    public TaskCPage openProductInfo() {
+    public DemoQAPage openProductInfo() {
         moveToElement(driver.findElement(tShirtToAdd));
         driver.findElement(tShirtToAdd).click();
         return this;
     }
 
-    public TaskCPage setProductColor(String color) {
+    public DemoQAPage setProductColor(String color) {
         moveToElement(driver.findElement(addToCardButton));
-        Select select = new Select(driver.findElement(colorDropDown));
-        select.selectByVisibleText(color);
+        selectByText(driver.findElement(colorDropDown),color);
         return this;
     }
 
-    public TaskCPage setProductSize(String size) {
+    public DemoQAPage setProductSize(String size) {
         moveToElement(driver.findElement(sizeDropDown));
-        Select select = new Select(driver.findElement(sizeDropDown));
-        select.selectByVisibleText(size);
+        selectByText(driver.findElement(sizeDropDown),size);
         return this;
     }
 
-    public TaskCPage setQuantity(String setQuantity) {
+    public DemoQAPage setQuantity(String setQuantity) {
         moveToElement(driver.findElement(quantity));
         driver.findElement(quantity).clear();
         driver.findElement(quantity).sendKeys(setQuantity);
         return this;
     }
 
-    public TaskCPage addProductToCart() {
+    public DemoQAPage addProductToCart() {
         moveToElement(driver.findElement(addToCardButton));
         driver.findElement(addToCardButton).click();
         return this;
     }
 
-    public TaskCCartPage openTheCart() {
+    public DemoQACartPage openTheCart() {
         moveToElement(driver.findElement(cartButton));
         waitClickable(driver.findElement(cartButton));
-        ////
-        return new TaskCCartPage(driver);
+        return new DemoQACartPage(driver);
     }
 
 }

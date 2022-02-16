@@ -1,4 +1,4 @@
-package taskAB;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,9 +17,7 @@ public class WishListPage {
     public WishListPage checkingWishList(String expectedItem) {
         Actions action = new Actions(driver);
         action.moveToElement(driver.findElement(itemInWishList)).perform();
-        String list = driver.findElement(itemInWishList).getText();
-//        System.out.println(list);
-        Assert.assertEquals(list, expectedItem);
+        Assert.assertEquals(driver.findElement(itemInWishList).getText(), expectedItem);
         return this;
     }
 

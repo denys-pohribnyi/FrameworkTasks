@@ -1,25 +1,27 @@
+package tests;
+
 import base.BaseTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import taskAB.WishListAddingPosition;
-import taskAB.WishListPage;
+import pages.DemoQAItemsListPage;
+import pages.WishListPage;
 
 public class TaskBTest extends BaseTest {
-    private WishListAddingPosition wishListAddingPosition;
+    private DemoQAItemsListPage demoQAItemsListPage;
     private WishListPage wishListPage;
 
     @BeforeMethod
     public void setUp() {
-        wishListAddingPosition = new WishListAddingPosition(getDriver());
+        demoQAItemsListPage = new DemoQAItemsListPage(getDriver());
         wishListPage = new WishListPage(getDriver());
     }
 
     @Test
     public void addingToWishListTest() {
         openURL("https://shop.demoqa.com/");
-        wishListAddingPosition
+        demoQAItemsListPage
                 .addingPositionToWL()
-                .openingWL();
+                .openingWishList();
         wishListPage.checkingWishList("TOKYO TALKIES");
 
     }
