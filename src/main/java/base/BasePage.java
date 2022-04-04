@@ -1,5 +1,7 @@
 package base;
 
+import data.TimeWait;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -16,6 +18,14 @@ public class BasePage {
         this.driver = getDriver();
     }
 
+
+    public void click(By locator, TimeWait timeWait){
+    WebDriverWait wait = new WebDriverWait(getDriver(),timeWait.getValue());
+    wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    WebElement element = (WebElement) getDriver().findElement(locator);
+    element.click();
+    }
+
     public void moveToElement(WebElement element) {
         Actions action = new Actions(driver);
         action.moveToElement(element).perform();
@@ -27,7 +37,7 @@ public class BasePage {
     }
     public void waitClickable(WebElement element){
         WebDriverWait wait = new WebDriverWait(driver,5);
-        wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
     public void selectByText(WebElement element, String selectByText){

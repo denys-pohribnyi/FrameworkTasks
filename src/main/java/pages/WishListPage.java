@@ -1,11 +1,11 @@
 package pages;
 
+import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
-public class WishListPage {
+public class WishListPage extends BasePage {
     private final WebDriver driver;
 
     public WishListPage(WebDriver driver) {
@@ -15,8 +15,7 @@ public class WishListPage {
     private final By itemInWishList = By.xpath("//*[contains(text(),'Tokyo Talkies')]");
 
     public WishListPage checkingWishList(String expectedItem) {
-        Actions action = new Actions(driver);
-        action.moveToElement(driver.findElement(itemInWishList)).perform();
+        moveToElement(driver.findElement(itemInWishList));
         Assert.assertEquals(driver.findElement(itemInWishList).getText(), expectedItem);
         return this;
     }

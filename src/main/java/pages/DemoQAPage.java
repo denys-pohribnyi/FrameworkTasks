@@ -1,6 +1,7 @@
 package pages;
 
 import base.BasePage;
+import data.TimeWait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -20,19 +21,19 @@ public class DemoQAPage extends BasePage {
 
     public DemoQAPage openProductInfo() {
         moveToElement(driver.findElement(tShirtToAdd));
-        driver.findElement(tShirtToAdd).click();
+        click(tShirtToAdd, TimeWait.TIME_WAIT_3);
         return this;
     }
 
     public DemoQAPage setProductColor(String color) {
         moveToElement(driver.findElement(addToCardButton));
-        selectByText(driver.findElement(colorDropDown),color);
+        selectByText(driver.findElement(colorDropDown), color);
         return this;
     }
 
     public DemoQAPage setProductSize(String size) {
         moveToElement(driver.findElement(sizeDropDown));
-        selectByText(driver.findElement(sizeDropDown),size);
+        selectByText(driver.findElement(sizeDropDown), size);
         return this;
     }
 
@@ -45,13 +46,13 @@ public class DemoQAPage extends BasePage {
 
     public DemoQAPage addProductToCart() {
         moveToElement(driver.findElement(addToCardButton));
-        driver.findElement(addToCardButton).click();
+        click(addToCardButton, TimeWait.TIME_WAIT_3);
         return this;
     }
 
     public DemoQACartPage openTheCart() {
         moveToElement(driver.findElement(cartButton));
-        waitClickable(driver.findElement(cartButton));
+        click(cartButton,TimeWait.TIME_WAIT_3);
         return new DemoQACartPage(driver);
     }
 
