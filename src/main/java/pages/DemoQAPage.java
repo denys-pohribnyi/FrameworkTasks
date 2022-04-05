@@ -20,39 +20,39 @@ public class DemoQAPage extends BasePage {
     private final By cartButton = By.xpath("//*[@id=\"noo-site\"]/div[2]/div/div/div[1]/div/a");
 
     public DemoQAPage openProductInfo() {
-        moveToElement(driver.findElement(tShirtToAdd));
+        moveToElement(tShirtToAdd);
         click(tShirtToAdd, TimeWait.TIME_WAIT_3);
         return this;
     }
 
     public DemoQAPage setProductColor(String color) {
-        moveToElement(driver.findElement(addToCardButton));
-        selectByText(driver.findElement(colorDropDown), color);
+        moveToElement(addToCardButton);
+        selectByText(colorDropDown, color);
         return this;
     }
 
     public DemoQAPage setProductSize(String size) {
-        moveToElement(driver.findElement(sizeDropDown));
-        selectByText(driver.findElement(sizeDropDown), size);
+        moveToElement(sizeDropDown);
+        selectByText(sizeDropDown, size);
         return this;
     }
 
     public DemoQAPage setQuantity(String setQuantity) {
-        moveToElement(driver.findElement(quantity));
-        driver.findElement(quantity).clear();
-        driver.findElement(quantity).sendKeys(setQuantity);
+        moveToElement(quantity);
+        clearField(quantity);
+        sendKeys(quantity, setQuantity);
         return this;
     }
 
     public DemoQAPage addProductToCart() {
-        moveToElement(driver.findElement(addToCardButton));
+        moveToElement(addToCardButton);
         click(addToCardButton, TimeWait.TIME_WAIT_3);
         return this;
     }
 
     public DemoQACartPage openTheCart() {
-        moveToElement(driver.findElement(cartButton));
-        click(cartButton,TimeWait.TIME_WAIT_3);
+        moveToElement(cartButton);
+        click(cartButton, TimeWait.TIME_WAIT_3);
         return new DemoQACartPage(driver);
     }
 
