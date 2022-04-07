@@ -15,7 +15,7 @@ public class WishListPage extends BasePage {
 
     public WishListPage checkingWishList(String expectedItem) {
         moveToElement(itemInWishList);
-        assertEq(itemInWishList, expectedItem);
+        assertTextPresenceOrAbsence(itemInWishList, expectedItem, true);
         return this;
     }
 

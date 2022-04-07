@@ -24,9 +24,9 @@ public class BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).click();
     }
 
-    public void moveToElement(By element) {
+    public void moveToElement(By locator) {
         Actions action = new Actions(driver);
-        action.moveToElement(driver.findElement(element)).perform();
+        action.moveToElement(driver.findElement(locator)).perform();
     }
 
     public void waitVisibility(By locator) {
@@ -39,8 +39,12 @@ public class BasePage {
         select.selectByVisibleText(selectByText);
     }
 
-    public void assertEq(By locator, String itemName) {
-        Assert.assertEquals(driver.findElement(locator).getText(), itemName);
+    public void assertTextPresenceOrAbsence(By locator, String itemName, Boolean checkTextPresence) {
+        if (checkTextPresence) {
+            Assert.assertEquals(driver.findElement(locator).getText(), itemName);
+        } else {
+            Assert.assertEquals(driver.findElement(locator).getText(),"");
+        }
     }
 
     public void clearField(By locator) {

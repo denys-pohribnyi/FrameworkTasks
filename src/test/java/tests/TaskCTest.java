@@ -26,7 +26,8 @@ public class TaskCTest extends BaseTest {
                 .setQuantity("3")
                 .addProductToCart()
                 .openTheCart();
-        demoQACartPage.checkingProductInTheCart("PINK DROP SHOULDER OVERSIZED T SHIRT - PINK");
+        demoQACartPage.checkingProductInTheCart("PINK DROP SHOULDER OVERSIZED T SHIRT - PINK")
+                .checkTextIsAbsent("some text");
     }
 }
 //C) в задании использовать паттерн page object
