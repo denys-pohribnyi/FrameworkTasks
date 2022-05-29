@@ -1,6 +1,7 @@
 package tests;
 
 import base.BaseTest;
+import io.qameta.allure.Step;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.DemoQACartPage;
@@ -16,6 +17,7 @@ public class TaskCTest extends BaseTest {
         demoQACartPage = new DemoQACartPage(getDriver());
     }
 
+    @Step("Adding T-shirt to Card")
     @Test
     public void addingTShirtToCardTest() {
         openURL("https://shop.demoqa.com/");
