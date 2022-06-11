@@ -17,7 +17,7 @@ public class AllureListeners implements ITestListener {
 
     @Override
     public void onTestSuccess(ITestResult result) {
-
+        saveScreenshot(BaseTest.getDriver());
     }
 
     @Override

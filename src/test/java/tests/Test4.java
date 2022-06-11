@@ -1,7 +1,7 @@
 package tests;
 
 import base.BaseTest;
-import io.qameta.allure.Step;
+import io.qameta.allure.Description;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.DemoQAItemsListPage;
@@ -17,7 +17,7 @@ public class Test4 extends BaseTest {
         wishListPage = new WishListPage(getDriver());
     }
 
-    @Step("Adding to WishList 3rd time")
+    @Description("Add item to wish list")
     @Test
     public void addingToWishListTest() {
         openURL("https://shop.demoqa.com/");

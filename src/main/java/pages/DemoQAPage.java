@@ -2,6 +2,7 @@ package pages;
 
 import base.BasePage;
 import data.TimeWait;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -19,24 +20,28 @@ public class DemoQAPage extends BasePage {
     private final By addToCardButton = By.xpath("//*[@id=\"product-1497\"]/div[1]/div[2]/form/div/div[2]/button");
     private final By cartButton = By.xpath("//*[@id=\"noo-site\"]/div[2]/div/div/div[1]/div/a");
 
+    @Step("Open product info page")
     public DemoQAPage openProductInfo() {
         moveToElement(tShirtToAdd);
         click(tShirtToAdd, TimeWait.TIME_WAIT_3);
         return this;
     }
 
+    @Step("Set color")
     public DemoQAPage setProductColor(String color) {
         moveToElement(addToCardButton);
         selectByText(colorDropDown, color);
         return this;
     }
 
+    @Step("Set size")
     public DemoQAPage setProductSize(String size) {
         moveToElement(sizeDropDown);
         selectByText(sizeDropDown, size);
         return this;
     }
 
+    @Step("Set Quantity")
     public DemoQAPage setQuantity(String setQuantity) {
         moveToElement(quantity);
         clearField(quantity);
@@ -44,12 +49,14 @@ public class DemoQAPage extends BasePage {
         return this;
     }
 
+    @Step("Add Product to Cart")
     public DemoQAPage addProductToCart() {
         moveToElement(addToCardButton);
         click(addToCardButton, TimeWait.TIME_WAIT_3);
         return this;
     }
 
+    @Step("Open the Cart")
     public DemoQACartPage openTheCart() {
         moveToElement(cartButton);
         click(cartButton, TimeWait.TIME_WAIT_3);

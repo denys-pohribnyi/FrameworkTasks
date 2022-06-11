@@ -2,6 +2,8 @@ package pages;
 
 import base.BasePage;
 import data.TimeWait;
+import io.qameta.allure.Attachment;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -17,7 +19,7 @@ public class DemoQAItemsListPage extends BasePage {
     private final By wishListPage = By.xpath("//*[contains(text(),'My Wishlist')]");
     private final By messageItemIsAdded = By.xpath("//div[@id='yith-wcwl-message']");
 
-
+    @Step("Add item to wish list")
     public DemoQAItemsListPage addingPositionToWL() {
         moveToElement(positionToAdd);
         click(wishListButton, TimeWait.TIME_WAIT_5);
@@ -25,9 +27,11 @@ public class DemoQAItemsListPage extends BasePage {
         return this;
     }
 
+    @Step("Open wish list")
     public WishListPage openingWishList() {
-        click(wishListPage,TimeWait.TIME_WAIT_10);
+        click(wishListPage, TimeWait.TIME_WAIT_10);
         return new WishListPage(driver);
+
     }
 
 }
